@@ -1,0 +1,26 @@
+html,
+body {
+  margin: 0;
+}
+
+body {
+  color: #333333;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  color: #001193;
+  text-decoration: none;
+}
+
+header {
+  border-bottom: 1px solid #cbcbcb;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  padding: 12px 16px;
+}
+
+article {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
