@@ -32,5 +32,8 @@
       "src/**/*.spec.ts"
     ],
     "exec": "ts-node --esm ./src/index.ts"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
