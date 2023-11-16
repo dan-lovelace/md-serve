@@ -1,8 +1,8 @@
 {
-  "name": "random-web-server",
+  "name": "md-serve",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "author": "dan-lovelace <dlovelace085@gmail.com>",
+  "author": "dan-lovelace",
   "license": "MIT",
   "scripts": {
     "build": "rimraf dist && tsc -b",
