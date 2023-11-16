@@ -1,9 +1,9 @@
-# md-serve
+# MDServe
 
-A barebones web server that converts pages written in Markdown to HTML. It will
-serve any Markdown located in the `pages` directory as HTML using the file's
-path as its access point. Files named `index.md` are considered base routes. For
-instance:
+A minimalistic web server that converts pages written in Markdown to HTML. It
+will serve any Markdown located in the `pages` directory as HTML using the
+file's path as its access point. Files named `index.md` are considered base
+routes. For instance:
 
 - The file `pages/index.md` is accessible at `/`
 - The file `pages/blog/ireland.md` is accessible at `/blog/ireland`
@@ -15,11 +15,17 @@ gets injected.
 
 ## Browser Javascript
 
-If your application needs Javascript, uncomment the line referencing
-`/js/main.js` and add whatever you want to `src/js/main.ts`. There is no
-bundling solution for browser Javascript so you can't `import`/`require` unless
-you modify the build process. If you need multiple files, just add separate
-`script` tags to `public/index.html`.
+MDServe does not enable client-side Javascript by default. If your application
+requires it, you have a couple options:
+
+- If plain Javascript is all you need, add it to the `public` directory and add
+  referenced `<script>` tag(s) to `public/index.html`.
+- If you prefer Typescript, files in the `src/js/` directory are served by a
+  special `/js*` handler. Open `public/index.html` and uncomment the script tag
+  referencing `/js/main.js`. This `js/main.js` file is emitted by the Typescript
+  compiler from `src/js/main.ts`. You may add additional Typescript to `src/js/`
+  but, since it is executed in the browser, it needs to be bundled in order to
+  use `require`/`import` statements.
 
 # Project structure
 

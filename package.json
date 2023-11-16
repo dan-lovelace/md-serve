@@ -27,9 +27,10 @@
   "nodemonConfig": {
     "watch": [
       "pages",
+      "public",
       "src"
     ],
-    "ext": "ts,md,json",
+    "ext": "css,html,js,json,md,ts",
     "ignore": [
       "src/**/*.spec.ts"
     ],
