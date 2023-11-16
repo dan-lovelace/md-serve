@@ -1,0 +1,15 @@
+version: "2.23"
+name: "md-serve"
+
+services:
+  md-web-server:
+    container_name: md-web-server
+    image: md-web-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    ports:
+      - "${PORT:-80}:${PORT:-80}"
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}

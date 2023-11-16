@@ -9,7 +9,7 @@ interface ICacheStore {
 type TCacheData = Record<string, TCacheItem>;
 type TCacheItem = { expires: number; value: string };
 
-const defaultCacheLengthSeconds = 5 * 60 * 1000; // 5 minutes
+const CACHE_LENGTH_MS = 5 * 60 * 1000; // 5 minutes
 
 class CacheStore implements ICacheStore {
   data: TCacheData = {};
@@ -26,7 +26,7 @@ class CacheStore implements ICacheStore {
 
   set(key: string, value: string) {
     this.data[key] = {
-      expires: new Date().getTime() + defaultCacheLengthSeconds,
+      expires: new Date().getTime() + CACHE_LENGTH_MS,
       value,
     };
 
@@ -34,8 +34,15 @@ class CacheStore implements ICacheStore {
   }
 }
 
+/**
+ * The global cache store.
+ */
 export const cacheStore = new CacheStore();
 
+/**
+ * Express middleware for caching a route's response.
+ * @returns An Express middleware function.
+ */
 export function cacheRoute() {
   return (req: Request, res: Response, next: NextFunction) => {
     const key = getCacheKey(req);
@@ -49,6 +56,11 @@ export function cacheRoute() {
   };
 }
 
+/**
+ * Gets a cache key from a request.
+ * @param req The request object.
+ * @returns A key to use when storing something in the cache store.
+ */
 export function getCacheKey(req: Request) {
   return `__express__${req.originalUrl || req.url}`;
 }

@@ -5,9 +5,9 @@
   "author": "dan-lovelace <dlovelace085@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && tsc",
-    "dev": "NODE_ENV=development concurrently \"npx tsc --watch\" \"nodemon\"",
-    "start": "NODE_ENV=production node dist/index.js"
+    "build": "rimraf dist && tsc -b",
+    "dev": "concurrently \"npx tsc --watch\" \"nodemon\"",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
@@ -20,11 +20,13 @@
     "@types/showdown": "^2.0.4",
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.1",
+    "rimraf": "^5.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
   "nodemonConfig": {
     "watch": [
+      "pages",
       "src"
     ],
     "ext": "ts,md,json",
