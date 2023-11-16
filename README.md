@@ -76,9 +76,9 @@ requires it, you have a couple options:
 # Local development
 
 The `npm run dev` command starts the server from source and watches for changes
-to the `pages` and `src` directories. The base HTML inherited by all pages can
-be found in `public/index.html` and anything in the `public` directory is served
-statically.
+to the `pages`, `public` and `src` directories. The base HTML inherited by all
+pages can be found in `public/index.html` and anything in the `public` directory
+is served statically.
 
 There is a `src/js` directory that is used to store any necessary Javascript for
 the browser. There is no bundling solution shipped by default but one could be
