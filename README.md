@@ -115,7 +115,7 @@ added depending on needs.
 
 ## Deployment
 
-Below are some very loose steps for AWS deployment options and there are an
+Below are some very loose steps for AWS deployment options and there is an
 endless list of other options for hosting Docker containers.
 
 ### EC2
